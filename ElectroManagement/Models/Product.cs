@@ -10,10 +10,9 @@ namespace ElectroManagement.Models
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public int CategoryID { get; set; }
-        public int BrandID { get; set; }
+        public int CategoryID { get; set; } // Lưu ID để Thêm/Sửa
+        public int BrandID { get; set; }    // Lưu ID để Thêm/Sửa
         public string Description { get; set; }
-        public bool IsDeleted { get; set; }
 
     }
 }

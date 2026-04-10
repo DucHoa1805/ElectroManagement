@@ -36,9 +36,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtBrand = new System.Windows.Forms.TextBox();
-            this.txtCategory = new System.Windows.Forms.TextBox();
             this.btnManageVariant = new System.Windows.Forms.Button();
+            this.btnManageBrand = new System.Windows.Forms.Button();
+            this.cboBrand = new System.Windows.Forms.ComboBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.btnManageCategory = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -72,9 +74,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 154);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Hãng";
+            this.label3.Text = "Nhãn hàng";
             // 
             // txtName
             // 
@@ -111,9 +113,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtBrand);
-            this.groupBox1.Controls.Add(this.txtCategory);
             this.groupBox1.Controls.Add(this.btnManageVariant);
+            this.groupBox1.Controls.Add(this.btnManageBrand);
+            this.groupBox1.Controls.Add(this.cboBrand);
+            this.groupBox1.Controls.Add(this.cboCategory);
+            this.groupBox1.Controls.Add(this.btnManageCategory);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnUpdate);
@@ -131,28 +135,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
-            // txtBrand
-            // 
-            this.txtBrand.Location = new System.Drawing.Point(140, 154);
-            this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(239, 22);
-            this.txtBrand.TabIndex = 16;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.Location = new System.Drawing.Point(140, 103);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(239, 22);
-            this.txtCategory.TabIndex = 15;
-            // 
             // btnManageVariant
             // 
-            this.btnManageVariant.Location = new System.Drawing.Point(22, 368);
+            this.btnManageVariant.Location = new System.Drawing.Point(314, 353);
             this.btnManageVariant.Name = "btnManageVariant";
-            this.btnManageVariant.Size = new System.Drawing.Size(426, 49);
-            this.btnManageVariant.TabIndex = 14;
-            this.btnManageVariant.Text = "Quản lý phân loại";
+            this.btnManageVariant.Size = new System.Drawing.Size(134, 49);
+            this.btnManageVariant.TabIndex = 18;
+            this.btnManageVariant.Text = "Quản lý kiểu dáng";
             this.btnManageVariant.UseVisualStyleBackColor = true;
+            this.btnManageVariant.Click += new System.EventHandler(this.btnManageVariant_Click);
+            // 
+            // btnManageBrand
+            // 
+            this.btnManageBrand.Location = new System.Drawing.Point(168, 353);
+            this.btnManageBrand.Name = "btnManageBrand";
+            this.btnManageBrand.Size = new System.Drawing.Size(134, 49);
+            this.btnManageBrand.TabIndex = 17;
+            this.btnManageBrand.Text = "Quản lý nhãn hàng";
+            this.btnManageBrand.UseVisualStyleBackColor = true;
+            this.btnManageBrand.Click += new System.EventHandler(this.btnManageBrand_Click);
+            // 
+            // cboBrand
+            // 
+            this.cboBrand.FormattingEnabled = true;
+            this.cboBrand.Location = new System.Drawing.Point(140, 146);
+            this.cboBrand.Name = "cboBrand";
+            this.cboBrand.Size = new System.Drawing.Size(239, 24);
+            this.cboBrand.TabIndex = 16;
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(140, 95);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(239, 24);
+            this.cboCategory.TabIndex = 15;
+            // 
+            // btnManageCategory
+            // 
+            this.btnManageCategory.Location = new System.Drawing.Point(22, 353);
+            this.btnManageCategory.Name = "btnManageCategory";
+            this.btnManageCategory.Size = new System.Drawing.Size(134, 49);
+            this.btnManageCategory.TabIndex = 14;
+            this.btnManageCategory.Text = "Quản lý danh mục";
+            this.btnManageCategory.UseVisualStyleBackColor = true;
+            this.btnManageCategory.Click += new System.EventHandler(this.btnManageCategory_Click);
             // 
             // btnClear
             // 
@@ -162,6 +189,7 @@
             this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Reset";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
@@ -188,7 +216,7 @@
             this.groupBox2.Controls.Add(this.dgvProduct);
             this.groupBox2.Location = new System.Drawing.Point(487, 113);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(822, 433);
+            this.groupBox2.Size = new System.Drawing.Size(630, 433);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách sản phẩm";
@@ -200,7 +228,7 @@
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 24;
-            this.dgvProduct.Size = new System.Drawing.Size(805, 396);
+            this.dgvProduct.Size = new System.Drawing.Size(607, 396);
             this.dgvProduct.TabIndex = 0;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             // 
@@ -208,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1310, 558);
+            this.ClientSize = new System.Drawing.Size(1134, 558);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmProduct";
@@ -236,8 +264,10 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.Button btnManageCategory;
+        private System.Windows.Forms.ComboBox cboBrand;
+        private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.Button btnManageVariant;
-        private System.Windows.Forms.TextBox txtCategory;
-        private System.Windows.Forms.TextBox txtBrand;
+        private System.Windows.Forms.Button btnManageBrand;
     }
 }
