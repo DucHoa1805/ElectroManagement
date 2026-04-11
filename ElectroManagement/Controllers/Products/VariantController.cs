@@ -2,9 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 using ElectroManagement.Database;
-using ElectroManagement.Models; // Sử dụng Model của bạn
+using ElectroManagement.Models.ProductEntities; // Sử dụng Model của bạn
 
-namespace ElectroManagement.Controllers
+namespace ElectroManagement.Controllers.Products
 {
     public class VariantController
     {

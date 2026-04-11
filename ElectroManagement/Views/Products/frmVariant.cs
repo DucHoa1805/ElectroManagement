@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using ElectroManagement.Controllers;
-using ElectroManagement.Models; // Thêm using này
+using ElectroManagement.Controllers.Products;
+using ElectroManagement.Models.ProductEntities; // Thêm using này
 
-namespace ElectroManagement.Views
+namespace ElectroManagement.Views.Products
 {
     public partial class frmVariant : Form
     {

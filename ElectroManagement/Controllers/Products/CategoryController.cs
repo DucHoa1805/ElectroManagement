@@ -2,18 +2,18 @@
 using System.Data;
 using System.Data.SqlClient;
 using ElectroManagement.Database;
-using ElectroManagement.Models; // Quan trọng: Phải using thư mục Models
+using ElectroManagement.Models.ProductEntities; // Đừng quên using thư mục Models nhé
 
-namespace ElectroManagement.Controllers
+namespace ElectroManagement.Controllers.Products
 {
-    public class BrandController
+    public class CategoryController
     {
-        // Vẫn dùng DataTable cho GetAll để đổ lên DataGridView nhanh nhất
         public DataTable GetAll()
         {
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
-                string query = "SELECT BrandID, BrandName FROM Brands";
+                // Vẫn giữ IsDeleted = 0 để lọc các danh mục chưa bị xóa mềm
+                string query = "SELECT CategoryID, CategoryName FROM Categories WHERE IsDeleted = 0";
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -21,38 +21,39 @@ namespace ElectroManagement.Controllers
             }
         }
 
-        // Dùng Model cho Thêm mới
-        public void Add(Brand b) // Truyền vào object Brand
+        // Truyền vào object Category thay vì chuỗi string đơn lẻ
+        public void Add(Category c)
         {
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
-                string query = "INSERT INTO Brands (BrandName) VALUES (@name)";
+                string query = "INSERT INTO Categories (CategoryName) VALUES (@name)";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@name", b.BrandName); // Lấy từ Model
+                cmd.Parameters.AddWithValue("@name", c.CategoryName);
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
 
-        // Dùng Model cho Cập nhật
-        public void Update(Brand b) // Truyền vào object Brand
+        // Truyền vào object Category để lấy cả ID và Name
+        public void Update(Category c)
         {
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
-                string query = "UPDATE Brands SET BrandName = @name WHERE BrandID = @id";
+                string query = "UPDATE Categories SET CategoryName = @name WHERE CategoryID = @id";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", b.BrandID);     // Lấy từ Model
-                cmd.Parameters.AddWithValue("@name", b.BrandName); // Lấy từ Model
+                cmd.Parameters.AddWithValue("@id", c.CategoryID);
+                cmd.Parameters.AddWithValue("@name", c.CategoryName);
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
 
+        // Xóa thường chỉ cần ID nên giữ nguyên int id là ổn nhất
         public void Delete(int id)
         {
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
-                string query = "DELETE FROM Brands WHERE BrandID = @id";
+                string query = "UPDATE Categories SET IsDeleted = 1 WHERE CategoryID = @id";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);
                 conn.Open();

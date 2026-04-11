@@ -1,4 +1,4 @@
-﻿namespace ElectroManagement.Views
+﻿namespace ElectroManagement.Views.Products
 {
     partial class frmVariant
     {

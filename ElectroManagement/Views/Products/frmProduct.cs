@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ElectroManagement.Controllers;
-using ElectroManagement.Models;
+using ElectroManagement.Controllers.Products;
+using ElectroManagement.Models.ProductEntities;
 
-namespace ElectroManagement.Views
+namespace ElectroManagement.Views.Products
 {
     public partial class frmProduct : Form
     {

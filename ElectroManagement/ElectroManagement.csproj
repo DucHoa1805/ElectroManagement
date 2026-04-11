@@ -46,39 +46,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BrandController.cs" />
-    <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\VariantController.cs" />
+    <Compile Include="Controllers\Products\BrandController.cs" />
+    <Compile Include="Controllers\Products\CategoryController.cs" />
+    <Compile Include="Controllers\Products\ProductController.cs" />
+    <Compile Include="Controllers\Products\VariantController.cs" />
     <Compile Include="Database\DatabaseHelper.cs" />
-    <Compile Include="Models\Brand.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductVariant.cs" />
+    <Compile Include="Models\ProductEntities\Brand.cs" />
+    <Compile Include="Models\ProductEntities\Category.cs" />
+    <Compile Include="Models\ProductEntities\Product.cs" />
+    <Compile Include="Models\ProductEntities\ProductVariant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\frmBrand.cs">
+    <Compile Include="Views\Products\frmBrand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmBrand.Designer.cs">
+    <Compile Include="Views\Products\frmBrand.Designer.cs">
       <DependentUpon>frmBrand.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmCategory.cs">
+    <Compile Include="Views\Products\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmCategory.Designer.cs">
+    <Compile Include="Views\Products\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmProduct.cs">
+    <Compile Include="Views\Products\frmProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmProduct.Designer.cs">
+    <Compile Include="Views\Products\frmProduct.Designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmVariant.cs">
+    <Compile Include="Views\Products\frmVariant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmVariant.Designer.cs">
+    <Compile Include="Views\Products\frmVariant.Designer.cs">
       <DependentUpon>frmVariant.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -90,16 +90,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\frmBrand.resx">
+    <EmbeddedResource Include="Views\Products\frmBrand.resx">
       <DependentUpon>frmBrand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmCategory.resx">
+    <EmbeddedResource Include="Views\Products\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmProduct.resx">
+    <EmbeddedResource Include="Views\Products\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmVariant.resx">
+    <EmbeddedResource Include="Views\Products\frmVariant.resx">
       <DependentUpon>frmVariant.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

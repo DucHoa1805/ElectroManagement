@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectroManagement.Models
+namespace ElectroManagement.Models.ProductEntities
 {
     public class ProductVariant
     {

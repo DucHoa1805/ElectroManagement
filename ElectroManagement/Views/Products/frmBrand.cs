@@ -1,10 +1,10 @@
-﻿using ElectroManagement.Controllers;
-using ElectroManagement.Models; // Đừng quên thêm dòng này để dùng class Brand
+﻿using ElectroManagement.Controllers.Products;
+using ElectroManagement.Models.ProductEntities; // Đừng quên thêm dòng này để dùng class Brand
 using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace ElectroManagement.Views
+namespace ElectroManagement.Views.Products
 {
     public partial class frmBrand : Form
     {

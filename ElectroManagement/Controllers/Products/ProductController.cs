@@ -2,9 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 using ElectroManagement.Database;
-using ElectroManagement.Models;
+using ElectroManagement.Models.ProductEntities;
 
-namespace ElectroManagement.Controllers
+namespace ElectroManagement.Controllers.Products
 {
     public class ProductController
     {

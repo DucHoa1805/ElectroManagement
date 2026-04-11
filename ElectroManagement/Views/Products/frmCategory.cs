@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using ElectroManagement.Controllers;
-using ElectroManagement.Models; // Quan trọng để dùng class Category
+using ElectroManagement.Controllers.Products;
+using ElectroManagement.Models.ProductEntities; // Quan trọng để dùng class Category
 
-namespace ElectroManagement.Views
+namespace ElectroManagement.Views.Products
 {
     public partial class frmCategory : Form
     {
