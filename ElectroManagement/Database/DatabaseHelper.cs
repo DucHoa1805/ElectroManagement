@@ -10,9 +10,8 @@ namespace ElectroManagement.Database
 {
     public class DatabaseHelper
     {
-        private static string connectionString =
-            "Data Source=localhost;Initial Catalog=ElectroDB;Integrated Security=True";
 
+        private static string connectionString = @"Server=BOMAYLAHACKER; Database=ElelectroDB; Integrated Security=True;";
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
