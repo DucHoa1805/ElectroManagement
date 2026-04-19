@@ -48,10 +48,20 @@ namespace ElectroManagement.Views.Main
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
+
+            // KHÔNG dùng DockStyle.Fill nữa
+            childForm.Dock = DockStyle.None;
 
             pnlContent.Controls.Add(childForm);
             pnlContent.Tag = childForm;
+
+            // CĂN GIỮA: Tính toán tọa độ X, Y để đặt vào giữa pnlContent
+            int x = (pnlContent.Width - childForm.Width) / 2;
+            int y = (pnlContent.Height - childForm.Height) / 2;
+
+            // Đảm bảo tọa độ không bị âm nếu Panel nhỏ hơn Form
+            childForm.Location = new Point(x > 0 ? x : 0, y > 0 ? y : 0);
+
             childForm.BringToFront();
             childForm.Show();
         }
@@ -89,5 +99,17 @@ namespace ElectroManagement.Views.Main
                 this.Close(); // Đóng frmMain, nếu bạn code chuẩn ở Program.cs hoặc Login thì nó sẽ hiện lại màn hình Login.
             }
         }
+
+        private void pnlContent_Resize(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                int x = (pnlContent.Width - activeForm.Width) / 2;
+                int y = (pnlContent.Height - activeForm.Height) / 2;
+                activeForm.Location = new Point(x > 0 ? x : 0, y > 0 ? y : 0);
+            }
+        }
+
+     
     }
 }
