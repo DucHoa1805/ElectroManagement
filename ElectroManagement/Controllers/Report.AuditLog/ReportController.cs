@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ElectroManagement.Database;
+// Đổi đường dẫn Models thành Report.AuditLog
+using ElectroManagement.Models.Report.AuditLog;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using ElectroManagement.Database;
-using ElectroManagement.Models.Orders;
 
-namespace ElectroManagement.Controllers.Orders
+namespace ElectroManagement.Controllers.Report.AuditLog
 {
     public class ReportController
     {
@@ -13,7 +14,6 @@ namespace ElectroManagement.Controllers.Orders
             List<RevenueReport> list = new List<RevenueReport>();
             string sql = "SELECT OrderID, OrderDate, TotalAmount, Status, PaymentStatus FROM Orders WHERE OrderDate BETWEEN @f AND @t";
 
-            // SỬA LỖI CS0176: Gọi trực tiếp DatabaseHelper.GetConnection()
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
