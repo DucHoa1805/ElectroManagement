@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using ElectroManagement.Controllers;
+// Cập nhật đường dẫn namespace mới
+using ElectroManagement.Controllers.Report.AuditLog;
+using ElectroManagement.Models.Report.AuditLog;
 
 namespace ElectroManagement.Views.Orders
 {
@@ -12,7 +14,7 @@ namespace ElectroManagement.Views.Orders
         {
             InitializeComponent();
 
-            // Thay đổi ở đây: Dùng Shown thay vì Load để giao diện hiện lên trước khi gọi Data
+            // Dùng Shown để giao diện hiện lên trước khi gọi Data
             this.Shown += (s, e) => LoadData();
         }
 
@@ -24,27 +26,30 @@ namespace ElectroManagement.Views.Orders
                 // Gọi hàm truy vấn từ Controller
                 var logs = _ctrl.GetAllLogs();
                 dgvAuditLogs.DataSource = logs;
+
+                // Tự động giãn cột cho đẹp
+                dgvAuditLogs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
-                // Lúc này Form đã hiện rồi, nên thông báo lỗi sẽ hiện đè lên giao diện
                 MessageBox.Show("Lỗi hiển thị nhật ký: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Nút Thêm (Ví dụ khi người dùng làm gì đó)
+        // Nút Thêm (Ví dụ kiểm tra)
         private void btnAddTest_Click(object sender, EventArgs e)
         {
             bool result = _ctrl.AddLog(1, "Kiểm tra hệ thống", "AuditLogs");
             if (result) LoadData();
         }
+
+        // Nút Tìm kiếm
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txtSearch.Text.Trim(); // Giả sử TextBox tìm kiếm tên là txtSearch
+            string keyword = txtSearch.Text.Trim();
 
             try
             {
-                // Gọi hàm SearchLogs vừa thêm ở trên
                 var results = _ctrl.SearchLogs(keyword);
                 dgvAuditLogs.DataSource = results;
             }
@@ -59,14 +64,16 @@ namespace ElectroManagement.Views.Orders
         {
             if (dgvAuditLogs.CurrentRow != null)
             {
-                // Kiểm tra xem cột LogID có tồn tại không để tránh lỗi ép kiểu
                 if (dgvAuditLogs.CurrentRow.Cells["LogID"].Value != null)
                 {
                     int id = (int)dgvAuditLogs.CurrentRow.Cells["LogID"].Value;
-                    if (_ctrl.DeleteLog(id))
+                    if (MessageBox.Show("Bạn có chắc muốn xóa dòng này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Xóa thành công!");
-                        LoadData();
+                        if (_ctrl.DeleteLog(id))
+                        {
+                            MessageBox.Show("Xóa thành công!");
+                            LoadData();
+                        }
                     }
                 }
             }

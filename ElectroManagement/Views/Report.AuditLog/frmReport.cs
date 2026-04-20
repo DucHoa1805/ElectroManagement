@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
-using ElectroManagement.Controllers.Orders;
-using ElectroManagement.Models.Orders;
-// Sử dụng thư viện ClosedXML đã cài đặt thành công
+// Cập nhật đường dẫn namespace mới
+using ElectroManagement.Controllers.Report.AuditLog;
+using ElectroManagement.Models.Report.AuditLog;
 using ClosedXML.Excel;
 
 namespace ElectroManagement.Views.Orders
@@ -16,30 +16,47 @@ namespace ElectroManagement.Views.Orders
         public frmReport()
         {
             InitializeComponent();
-            // Đảm bảo các nút được gán đúng sự kiện
+            // Gán sự kiện cho các nút
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
+
+            // Tự động load dữ liệu khi mở Form
+            this.Load += new System.EventHandler(this.frmReport_Load);
         }
 
-        // 1. NÚT XEM BÁO CÁO
-        private void btnViewReport_Click(object sender, EventArgs e)
+        private void frmReport_Load(object sender, EventArgs e)
+        {
+            // Thiết lập ngày mặc định (đầu tháng đến hiện tại)
+            DateTime now = DateTime.Now;
+            dtpFromDate.Value = new DateTime(now.Year, now.Month, 1);
+            dtpToDate.Value = now;
+
+            LoadDefaultReport();
+        }
+
+        private void LoadDefaultReport()
         {
             try
             {
                 var data = _ctrl.GetRevenueReport(dtpFromDate.Value, dtpToDate.Value);
                 dgvReportData.DataSource = data;
 
-                // Tính tổng doanh thu bằng LINQ
+                dgvReportData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
                 decimal total = data?.Sum(x => x.TotalAmount) ?? 0;
                 lblTotalRevenue.Text = string.Format("{0:N0} VND", total);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hiển thị báo cáo: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Lỗi load dữ liệu ban đầu: " + ex.Message);
             }
         }
 
-        // 2. NÚT XUẤT EXCEL
+        private void btnViewReport_Click(object sender, EventArgs e)
+        {
+            LoadDefaultReport();
+        }
+
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             if (dgvReportData.Rows.Count == 0)
@@ -67,38 +84,31 @@ namespace ElectroManagement.Views.Orders
             }
         }
 
-        // Hàm xử lý xuất dữ liệu bằng ClosedXML (Thay thế cho Interop cũ)
         private void ExportWithClosedXML(DataGridView dgv, string fileName)
         {
             using (var workbook = new XLWorkbook())
             {
-                // Tạo một trang tính mới
                 var worksheet = workbook.Worksheets.Add("Doanh Thu");
 
-                // 1. Xuất tiêu đề cột
+                // Tiêu đề cột
                 for (int i = 0; i < dgv.Columns.Count; i++)
                 {
                     var cell = worksheet.Cell(1, i + 1);
                     cell.Value = dgv.Columns[i].HeaderText;
                     cell.Style.Font.Bold = true;
                     cell.Style.Fill.BackgroundColor = XLColor.LightGray;
-                    cell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
                 }
 
-                // 2. Đổ dữ liệu từ DataGridView
+                // Dữ liệu
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     for (int j = 0; j < dgv.Columns.Count; j++)
                     {
-                        // i + 2 vì hàng 1 là tiêu đề, Excel bắt đầu từ index 1
                         worksheet.Cell(i + 2, j + 1).Value = dgv.Rows[i].Cells[j].Value?.ToString() ?? "";
                     }
                 }
 
-                // Tự động căn chỉnh độ rộng cột theo nội dung
                 worksheet.Columns().AdjustToContents();
-
-                // Lưu file
                 workbook.SaveAs(fileName);
             }
         }

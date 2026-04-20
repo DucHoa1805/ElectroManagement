@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ElectroManagement.Models.Orders
+namespace ElectroManagement.Models.Report.AuditLog
 {
     public class Audit
     {
