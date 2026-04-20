@@ -11,7 +11,7 @@ namespace ElectroManagement.Database
     public class DatabaseHelper
     {
 
-        private static string connectionString = @"Server=BOMAYLAHACKER; Database=ElelectroDB; Integrated Security=True;";
+        private static string connectionString = @"Data Source=DESKTOP-PRJK00R\SQLEXPRESS01;Initial Catalog=ElelectroDB12;Integrated Security=True;TrustServerCertificate=True;";
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
