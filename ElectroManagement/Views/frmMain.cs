@@ -12,7 +12,7 @@ namespace ElectroManagement.Views
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            frmInventory frm = new frmInventory();
+            Inventory.frmInventory frm = new Inventory.frmInventory();
             frm.ShowDialog();
         }
 

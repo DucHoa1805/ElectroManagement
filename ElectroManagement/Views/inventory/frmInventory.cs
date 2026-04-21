@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace ElectroManagement.Views
+namespace ElectroManagement.Views.Inventory
 {
     public partial class frmInventory : Form
     {

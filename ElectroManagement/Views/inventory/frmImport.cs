@@ -2,7 +2,7 @@ using ElectroManagement.Controllers.Inventory;
 using System;
 using System.Windows.Forms;
 
-namespace ElectroManagement.Views
+namespace ElectroManagement.Views.Inventory
 {
     public partial class frmImport : Form
     {
