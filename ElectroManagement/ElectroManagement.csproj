@@ -96,8 +96,6 @@
     <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Models\Report.AuditLog\Audit.cs" />
     <Compile Include="Models\Report.AuditLog\Report.cs" />
-    <Compile Include="Models\Orders\Audit.cs" />
-    <Compile Include="Models\Orders\Report.cs" />
     <Compile Include="Helpers\SecurityHelper.cs" />
     <Compile Include="Helpers\Session.cs" />
     <Compile Include="Models\ProductEntities\Brand.cs" />
