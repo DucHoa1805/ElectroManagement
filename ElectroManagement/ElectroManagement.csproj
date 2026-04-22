@@ -21,7 +21,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -87,14 +87,13 @@
     <Compile Include="Controllers\Inventory\InventoryController.cs" />
     <Compile Include="Controllers\Report.AuditLog\AuditController.cs" />
     <Compile Include="Controllers\Report.AuditLog\ReportController.cs" />
-    <Compile Include="Controllers\Orders\AuditController.cs" />
-    <Compile Include="Controllers\Orders\ReportController.cs" />
     <Compile Include="Controllers\Auth\AuthController.cs" />
     <Compile Include="Controllers\Products\BrandController.cs" />
     <Compile Include="Controllers\Products\CategoryController.cs" />
     <Compile Include="Controllers\Products\ProductController.cs" />
     <Compile Include="Controllers\Products\VariantController.cs" />
     <Compile Include="Database\DatabaseHelper.cs" />
+    <Compile Include="Models\InventoryEntities\InventoryTransaction.cs" />
     <Compile Include="Models\Report.AuditLog\Audit.cs" />
     <Compile Include="Models\Report.AuditLog\Report.cs" />
     <Compile Include="Helpers\SecurityHelper.cs" />
@@ -217,15 +216,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\Orders\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
