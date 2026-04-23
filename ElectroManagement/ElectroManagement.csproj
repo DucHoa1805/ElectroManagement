@@ -108,11 +108,15 @@
     <Compile Include="Views\inventory\frmImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\inventory\frmImport.Designer.cs" />
+    <Compile Include="Views\inventory\frmImport.Designer.cs">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\inventory\frmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\inventory\frmInventory.Designer.cs" />
+    <Compile Include="Views\inventory\frmInventory.Designer.cs">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Report.AuditLog\frmAuditLog.cs">
       <SubType>Form</SubType>
     </Compile>
