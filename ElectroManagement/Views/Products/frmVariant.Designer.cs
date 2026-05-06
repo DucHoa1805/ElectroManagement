@@ -66,6 +66,7 @@
             // 
             // dgvVariant
             // 
+            this.dgvVariant.AllowUserToAddRows = false;
             this.dgvVariant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVariant.Location = new System.Drawing.Point(6, 21);
             this.dgvVariant.Name = "dgvVariant";
@@ -244,6 +245,7 @@
             this.ClientSize = new System.Drawing.Size(1097, 459);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.HelpButton = true;
             this.Name = "frmVariant";
             this.Text = "frmVariant";
             this.groupBox2.ResumeLayout(false);

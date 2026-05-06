@@ -53,6 +53,7 @@
             // 
             // dgvBrand
             // 
+            this.dgvBrand.AllowUserToAddRows = false;
             this.dgvBrand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBrand.Location = new System.Drawing.Point(6, 21);
             this.dgvBrand.Name = "dgvBrand";

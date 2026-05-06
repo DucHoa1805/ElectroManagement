@@ -113,6 +113,7 @@
             // 
             // dgvCategory
             // 
+            this.dgvCategory.AllowUserToAddRows = false;
             this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategory.Location = new System.Drawing.Point(6, 21);
             this.dgvCategory.Name = "dgvCategory";

@@ -128,7 +128,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 113);
+            this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(469, 433);
             this.groupBox1.TabIndex = 9;
@@ -214,21 +214,22 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvProduct);
-            this.groupBox2.Location = new System.Drawing.Point(487, 113);
+            this.groupBox2.Location = new System.Drawing.Point(487, 28);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(630, 433);
+            this.groupBox2.Size = new System.Drawing.Size(578, 433);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách sản phẩm";
             // 
             // dgvProduct
             // 
+            this.dgvProduct.AllowUserToAddRows = false;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.Location = new System.Drawing.Point(6, 21);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 24;
-            this.dgvProduct.Size = new System.Drawing.Size(607, 396);
+            this.dgvProduct.Size = new System.Drawing.Size(563, 396);
             this.dgvProduct.TabIndex = 0;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             // 
@@ -236,11 +237,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 558);
+            this.ClientSize = new System.Drawing.Size(1079, 471);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmProduct";
-            this.Text = "frmProduct";
+            this.Text = "Quản lý sản phẩm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -248,7 +249,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
 
         private System.Windows.Forms.Label label1;

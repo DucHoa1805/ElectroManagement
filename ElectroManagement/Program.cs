@@ -14,7 +14,8 @@ namespace ElectroManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Orders.frmOrder());
+         
+            Application.Run(new Views.Auth.frmLogin());
         }
     }
 }
