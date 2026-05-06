@@ -118,12 +118,11 @@
     <Compile Include="Views\Orders\frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-	<Compile Include="Views\Orders\frmPayment.cs">
-	  <SubType>Form</SubType>
-	</Compile>
-	<Compile Include="Views\Orders\frmPayment.Designer.cs">
-	  <DependentUpon>frmPayment.cs</DependentUpon>
-	</Compile>
+    <Compile Include="Views\Orders\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+	  <Compile Include="Views\Orders\frmPayment.Designer.cs">
+	  </Compile>
     <Compile Include="Views\Account\frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,7 +203,6 @@
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
 	  <EmbeddedResource Include="Views\Orders\frmPayment.resx">
-		<DependentUpon>frmPayment.cs</DependentUpon>
 	  </EmbeddedResource>
     <EmbeddedResource Include="Views\Report.AuditLog\frmAuditLog.resx">
       <DependentUpon>frmAuditLog.cs</DependentUpon>
