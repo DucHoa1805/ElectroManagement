@@ -125,5 +125,7 @@ namespace ElectroManagement.Views.Products
         {
             ClearInput();
         }
+
+       
     }
 }

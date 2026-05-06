@@ -46,7 +46,19 @@ namespace ElectroManagement.Controllers.Products
                 cmd.Parameters.AddWithValue("@desc", (object)p.Description ?? DBNull.Value);
 
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                SqlTransaction trans = conn.BeginTransaction();
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    LogAction(conn, trans, $"Thêm mới Sản phẩm: {p.ProductName}", "Products");
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
             }
         }
 
@@ -69,7 +81,19 @@ namespace ElectroManagement.Controllers.Products
                 cmd.Parameters.AddWithValue("@desc", (object)p.Description ?? DBNull.Value);
 
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                SqlTransaction trans = conn.BeginTransaction();
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    LogAction(conn, trans, $"Cập nhật Sản phẩm: {p.ProductName}", "Products");
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
             }
         }
 
@@ -81,8 +105,41 @@ namespace ElectroManagement.Controllers.Products
                 string query = "UPDATE Products SET IsDeleted = 1 WHERE ProductID = @id";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);
+
                 conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    LogAction(conn, trans, $"Xóa mềm Sản phẩm ID: {id}", "Products");
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        private void LogAction(SqlConnection conn, SqlTransaction trans, string action, string tableName)
+        {
+            try
+            {
+                int currentUserId = ElectroManagement.Helpers.Session.CurrentUser != null ? ElectroManagement.Helpers.Session.CurrentUser.UserID : 1;
+                string query = @"INSERT INTO AuditLogs (UserID, Action, TableName, CreatedAt) 
+                                 VALUES (@UserID, @Action, @TableName, @CreatedAt)";
+                SqlCommand cmd = new SqlCommand(query, conn, trans);
+                cmd.Parameters.AddWithValue("@UserID", currentUserId);
+                cmd.Parameters.AddWithValue("@Action", action);
+                cmd.Parameters.AddWithValue("@TableName", tableName);
+                cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
                 cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                // Bỏ qua lỗi log
             }
         }
     }

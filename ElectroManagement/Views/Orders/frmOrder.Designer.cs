@@ -1,4 +1,4 @@
-﻿namespace ElectroManagement.Views.Orders
+namespace ElectroManagement.Views.Orders
 {
     partial class frmOrder
     {
@@ -22,6 +22,7 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.lblProduct = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.gbInfo.Controls.Add(this.lblQuantity);
             this.gbInfo.Controls.Add(this.cmbProduct);
             this.gbInfo.Controls.Add(this.lblProduct);
+            this.gbInfo.Controls.Add(this.lblStock);
             this.gbInfo.Controls.Add(this.txtPhone);
             this.gbInfo.Controls.Add(this.lblPhone);
             this.gbInfo.Controls.Add(this.txtCustomerName);
@@ -65,7 +67,7 @@
             0,
             0});
             this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(100, 20);
+            this.nudQuantity.Size = new System.Drawing.Size(100, 22);
             this.nudQuantity.TabIndex = 0;
             this.nudQuantity.Value = new decimal(new int[] {
             1,
@@ -79,7 +81,7 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Location = new System.Drawing.Point(20, 235);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(52, 13);
+            this.lblQuantity.Size = new System.Drawing.Size(63, 16);
             this.lblQuantity.TabIndex = 1;
             this.lblQuantity.Text = "Số lượng:";
             // 
@@ -87,13 +89,9 @@
             // 
             this.cmbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProduct.FormattingEnabled = true;
-            this.cmbProduct.Items.AddRange(new object[] {
-            "iPhone 15 Pro Max - Titan Tự Nhiên",
-            "MacBook Pro M3 14 inch",
-            "Samsung Galaxy S24 Ultra"});
             this.cmbProduct.Location = new System.Drawing.Point(20, 195);
             this.cmbProduct.Name = "cmbProduct";
-            this.cmbProduct.Size = new System.Drawing.Size(280, 21);
+            this.cmbProduct.Size = new System.Drawing.Size(280, 24);
             this.cmbProduct.TabIndex = 2;
             // 
             // lblProduct
@@ -101,15 +99,24 @@
             this.lblProduct.AutoSize = true;
             this.lblProduct.Location = new System.Drawing.Point(20, 170);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(84, 13);
+            this.lblProduct.Size = new System.Drawing.Size(103, 16);
             this.lblProduct.TabIndex = 3;
             this.lblProduct.Text = "Chọn sản phẩm:";
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Location = new System.Drawing.Point(180, 235);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(66, 16);
+            this.lblStock.TabIndex = 8;
+            this.lblStock.Text = "Tồn kho: -";
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(20, 130);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(280, 20);
+            this.txtPhone.Size = new System.Drawing.Size(280, 22);
             this.txtPhone.TabIndex = 4;
             // 
             // lblPhone
@@ -117,7 +124,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(20, 105);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(73, 13);
+            this.lblPhone.Size = new System.Drawing.Size(88, 16);
             this.lblPhone.TabIndex = 5;
             this.lblPhone.Text = "Số điện thoại:";
             // 
@@ -125,7 +132,7 @@
             // 
             this.txtCustomerName.Location = new System.Drawing.Point(20, 65);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(280, 20);
+            this.txtCustomerName.Size = new System.Drawing.Size(280, 22);
             this.txtCustomerName.TabIndex = 6;
             // 
             // lblCustomerName
@@ -133,7 +140,7 @@
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Location = new System.Drawing.Point(20, 40);
             this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(89, 13);
+            this.lblCustomerName.Size = new System.Drawing.Size(106, 16);
             this.lblCustomerName.TabIndex = 7;
             this.lblCustomerName.Text = "Tên khách hàng:";
             // 
@@ -156,8 +163,10 @@
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetails.Location = new System.Drawing.Point(15, 25);
             this.dgvOrderDetails.Name = "dgvOrderDetails";
+            this.dgvOrderDetails.RowHeadersWidth = 51;
             this.dgvOrderDetails.Size = new System.Drawing.Size(530, 340);
             this.dgvOrderDetails.TabIndex = 0;
+            
             // 
             // btnAdd
             // 
@@ -251,5 +260,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.Label lblStock;
     }
 }

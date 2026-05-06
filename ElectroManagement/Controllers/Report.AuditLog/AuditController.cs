@@ -52,14 +52,46 @@ namespace ElectroManagement.Controllers.Report.AuditLog
             return list;
         }
 
-        internal bool AddLog(int v1, string v2, string v3)
+        /// <summary>
+        /// Thêm một bản ghi vào bảng AuditLogs
+        /// </summary>
+        public bool AddLog(int? userId, string action, string tableName)
         {
-            throw new NotImplementedException();
+            string sql = @"INSERT INTO AuditLogs (UserID, Action, TableName, CreatedAt)
+                           VALUES (@UserID, @Action, @TableName, @CreatedAt)";
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                if (userId.HasValue)
+                    cmd.Parameters.AddWithValue("@UserID", userId.Value);
+                else
+                    cmd.Parameters.AddWithValue("@UserID", DBNull.Value);
+
+                cmd.Parameters.AddWithValue("@Action", action ?? string.Empty);
+                cmd.Parameters.AddWithValue("@TableName", tableName ?? string.Empty);
+                cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                return rows > 0;
+            }
         }
 
-        internal bool DeleteLog(int id)
+        /// <summary>
+        /// Xóa một log theo id
+        /// </summary>
+        public bool DeleteLog(int id)
         {
-            throw new NotImplementedException();
+            string sql = "DELETE FROM AuditLogs WHERE LogID = @LogID";
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@LogID", id);
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                return rows > 0;
+            }
         }
 
         private Audit MapReaderToAudit(SqlDataReader rdr)

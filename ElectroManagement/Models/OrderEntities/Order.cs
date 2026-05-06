@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ElectroManagement.Models.OrderEntities
 {
@@ -10,5 +11,11 @@ namespace ElectroManagement.Models.OrderEntities
         public decimal TotalAmount { get; set; }
         public DateTime CreatedAt { get; set; }
         public string Status { get; set; } // Ví dụ: "Pending", "Completed", "Cancelled"
+        public List<OrderDetail> OrderDetails { get; set; }
+
+        public Order()
+        {
+            OrderDetails = new List<OrderDetail>();
+        }
     }
 }

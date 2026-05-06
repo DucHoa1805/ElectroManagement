@@ -1,4 +1,4 @@
-﻿namespace ElectroManagement.Views.Orders
+﻿namespace ElectroManagement.Views.Report.AuditLog
 {
     partial class frmAuditLog
     {

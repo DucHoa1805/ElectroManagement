@@ -1,0 +1,9 @@
+COLUMN_NAME
+-----------
+PaymentID
+OrderID
+PaymentMethod
+Amount
+PaidAt
+
+(5 rows affected)

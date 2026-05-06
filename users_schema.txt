@@ -1,0 +1,9 @@
+COLUMN_NAME
+-----------
+UserID
+Username
+Password
+RoleID
+IsActive
+
+(5 rows affected)

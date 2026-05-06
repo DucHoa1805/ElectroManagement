@@ -1,0 +1,9 @@
+COLUMN_NAME
+-----------
+LogID
+UserID
+Action
+TableName
+CreatedAt
+
+(5 rows affected)

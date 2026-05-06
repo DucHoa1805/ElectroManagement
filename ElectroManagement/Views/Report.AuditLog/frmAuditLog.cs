@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using ElectroManagement.Controllers.Report.AuditLog;
 using ElectroManagement.Models.Report.AuditLog;
 
-namespace ElectroManagement.Views.Orders
+namespace ElectroManagement.Views.Report.AuditLog
 {
     public partial class frmAuditLog : Form
     {
@@ -29,6 +29,20 @@ namespace ElectroManagement.Views.Orders
 
                 // Tự động giãn cột cho đẹp
                 dgvAuditLogs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // Đổi tên cột sang tiếng Việt
+                try
+                {
+                    if (dgvAuditLogs.Columns["LogID"] != null) dgvAuditLogs.Columns["LogID"].HeaderText = "Mã";
+                    if (dgvAuditLogs.Columns["Username"] != null) dgvAuditLogs.Columns["Username"].HeaderText = "Người thực hiện";
+                    if (dgvAuditLogs.Columns["Action"] != null) dgvAuditLogs.Columns["Action"].HeaderText = "Hành động";
+                    if (dgvAuditLogs.Columns["TableName"] != null) dgvAuditLogs.Columns["TableName"].HeaderText = "Bảng";
+                    if (dgvAuditLogs.Columns["CreatedAt"] != null)
+                    {
+                        dgvAuditLogs.Columns["CreatedAt"].HeaderText = "Thời gian";
+                        dgvAuditLogs.Columns["CreatedAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                    }
+                }
+                catch { }
             }
             catch (Exception ex)
             {

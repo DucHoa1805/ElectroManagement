@@ -8,6 +8,7 @@ namespace ElectroManagement.Views.Orders
     {
         private PaymentController _paymentController;
         private decimal _totalAmount = 0;
+        private int _orderId = 0;
 
         // Cửa số 1: Phòng hờ có file nào gọi cũ không bị báo lỗi
         public frmPayment()
@@ -20,6 +21,15 @@ namespace ElectroManagement.Views.Orders
         public frmPayment(decimal totalAmount)
         {
             InitializeComponent();
+            _totalAmount = totalAmount;
+            SetupForm();
+        }
+
+        // Cửa số 3: Nhận thêm OrderID để xử lý lưu db
+        public frmPayment(int orderId, decimal totalAmount)
+        {
+            InitializeComponent();
+            _orderId = orderId;
             _totalAmount = totalAmount;
             SetupForm();
         }
@@ -62,8 +72,13 @@ namespace ElectroManagement.Views.Orders
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
             string method = cmbPaymentMethod.SelectedItem.ToString();
-            _paymentController.ProcessPayment(method, _totalAmount);
-            this.Close();
+            bool result = _paymentController.ProcessPayment(_orderId, method, _totalAmount);
+
+            if (result)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         // Bấm Hủy bỏ

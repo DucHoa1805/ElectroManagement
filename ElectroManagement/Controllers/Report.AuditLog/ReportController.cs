@@ -36,5 +36,7 @@ namespace ElectroManagement.Controllers.Report.AuditLog
             }
             return list;
         }
+
+
     }
 }

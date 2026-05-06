@@ -41,27 +41,23 @@ namespace ElectroManagement.Views.Auth
             if (loggedInUser != null)
             {
                 // QUAN TRỌNG: Lưu thông tin vào Session trước khi mở Main
-                // Bạn cần kiểm tra lại class Session xem có hàm Login hoặc biến IsLoggedIn không.
-                // Ví dụ phổ biến:
-                // Session.Login(loggedInUser); 
+                Session.Login(loggedInUser);
 
-                MessageBox.Show($"Đăng nhập thành công!\nXin chào: {loggedInUser.Username}",
-                                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Đăng nhập thành công! Chào mừng {loggedInUser.Username}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // --- BẮT ĐẦU CHUYỂN FORM ---
-                // Tạo mới form main
-                frmMain mainForm = new frmMain();
-
-                // Hiển thị form main
-                mainForm.Show();
-
-                // Ẩn form đăng nhập (Nếu dùng this.Close() chương trình sẽ thoát luôn)
+                // Ẩn form login đi
                 this.Hide();
+
+                // Mở main form
+                frmMain mainForm = new frmMain();
+                mainForm.ShowDialog();
+
+                // Khi main đóng, tắt hẳn app
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!",
-                                "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sai tài khoản, mật khẩu hoặc tài khoản đã bị vô hiệu hóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Clear();
                 txtPassword.Focus();
             }

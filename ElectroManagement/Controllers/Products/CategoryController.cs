@@ -29,8 +29,21 @@ namespace ElectroManagement.Controllers.Products
                 string query = "INSERT INTO Categories (CategoryName) VALUES (@name)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", c.CategoryName);
+
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                SqlTransaction trans = conn.BeginTransaction();
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    LogAction(conn, trans, $"Thêm mới Danh mục: {c.CategoryName}", "Categories");
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
             }
         }
 
@@ -43,8 +56,21 @@ namespace ElectroManagement.Controllers.Products
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", c.CategoryID);
                 cmd.Parameters.AddWithValue("@name", c.CategoryName);
+
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                SqlTransaction trans = conn.BeginTransaction();
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    LogAction(conn, trans, $"Cập nhật Danh mục: {c.CategoryName}", "Categories");
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
             }
         }
 
@@ -56,9 +82,39 @@ namespace ElectroManagement.Controllers.Products
                 string query = "UPDATE Categories SET IsDeleted = 1 WHERE CategoryID = @id";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);
+
                 conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    LogAction(conn, trans, $"Xóa Danh mục ID: {id}", "Categories");
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        private void LogAction(SqlConnection conn, SqlTransaction trans, string action, string tableName)
+        {
+            try
+            {
+                int currentUserId = ElectroManagement.Helpers.Session.CurrentUser != null ? ElectroManagement.Helpers.Session.CurrentUser.UserID : 1;
+                string query = @"INSERT INTO AuditLogs (UserID, Action, TableName, CreatedAt) 
+                                 VALUES (@UserID, @Action, @TableName, @CreatedAt)";
+                SqlCommand cmd = new SqlCommand(query, conn, trans);
+                cmd.Parameters.AddWithValue("@UserID", currentUserId);
+                cmd.Parameters.AddWithValue("@Action", action);
+                cmd.Parameters.AddWithValue("@TableName", tableName);
+                cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
                 cmd.ExecuteNonQuery();
             }
+            catch { }
         }
     }
 }

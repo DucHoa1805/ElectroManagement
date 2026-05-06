@@ -112,6 +112,7 @@
             this.nmrPrice.Size = new System.Drawing.Size(239, 22);
             this.nmrPrice.TabIndex = 25;
             this.nmrPrice.ThousandsSeparator = true;
+           
             // 
             // nmrQuantity
             // 

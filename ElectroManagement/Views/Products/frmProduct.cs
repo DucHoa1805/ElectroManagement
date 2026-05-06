@@ -52,6 +52,16 @@ namespace ElectroManagement.Views.Products
             HideColumn("ProductID");
             HideColumn("CategoryID");
             HideColumn("BrandID");
+            // Đổi tên cột sang tiếng Việt
+            try
+            {
+                if (dgvProduct.Columns["ProductName"] != null) dgvProduct.Columns["ProductName"].HeaderText = "Tên sản phẩm";
+                if (dgvProduct.Columns["CategoryName"] != null) dgvProduct.Columns["CategoryName"].HeaderText = "Danh mục";
+                if (dgvProduct.Columns["BrandName"] != null) dgvProduct.Columns["BrandName"].HeaderText = "Nhãn hàng";
+                if (dgvProduct.Columns["Description"] != null) dgvProduct.Columns["Description"].HeaderText = "Mô tả";
+                dgvProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch { }
         }
 
         void HideColumn(string name)

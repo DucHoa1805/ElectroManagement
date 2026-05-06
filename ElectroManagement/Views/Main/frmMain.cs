@@ -2,6 +2,8 @@
 using ElectroManagement.Views.Auth;
 using ElectroManagement.Views.Products; // Chứa frmProduct, frmBrand...
 using System;
+using ElectroManagement.Views.Orders; // Chứa frmOrder, frmPayment...
+using ElectroManagement.Views.Inventory; // Chứa frmInventory
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,30 +38,45 @@ namespace ElectroManagement.Views.Main
                 this.Close();
                 return;
             }
+
+            // Hiển thị tên người dùng sau khi đăng nhập thành công
+            lblUserInfo.Text = $"Xin chào, {Session.CurrentUser.Username}";
         }
 
         private void OpenChildForm(Form childForm)
         {
-            if (activeForm != null)
+            // Kiểm tra xem form này đã đang được mở chưa
+            foreach (Control ctrl in pnlContent.Controls)
             {
-                activeForm.Close();
+                if (ctrl.GetType() == childForm.GetType())
+                {
+                    ctrl.BringToFront(); // Đẩy form đó lên trên cùng
+                    return; // Thoát ra, không tạo form mới
+                }
             }
 
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
+            // Nếu người dùng không muốn giữ nhiều form, gỡ comment dòng dưới:
+            // pnlContent.Controls.Clear(); 
 
-            // KHÔNG dùng DockStyle.Fill nữa
+            childForm.TopLevel = false;
+
+            // Cho phép người dùng kéo thả, thu phóng Windows bên trong Main (không cố định)
+            childForm.FormBorderStyle = FormBorderStyle.Sizable; 
+
+            // Nếu muốn nhìn thấy thanh tiêu đề trên của form con để user dễ kéo:
+            // (Nếu bạn muốn giao diện phẳng thì để FormBorderStyle = FixedSingle hoăc SizableToolWindow)
+
+            // KHÔNG dùng DockStyle
             childForm.Dock = DockStyle.None;
 
             pnlContent.Controls.Add(childForm);
             pnlContent.Tag = childForm;
 
-            // CĂN GIỮA: Tính toán tọa độ X, Y để đặt vào giữa pnlContent
-            int x = (pnlContent.Width - childForm.Width) / 2;
-            int y = (pnlContent.Height - childForm.Height) / 2;
+            // Xếp lớp các Form mở ra lùi xuống 1 góc nhỏ để dễ nhìn nếu mở nhiều (Cascade)
+            int offset = pnlContent.Controls.Count * 25; // Mỗi lần mở tụt xuống 25px
+            int x = ((pnlContent.Width - childForm.Width) / 2) + offset - 50; 
+            int y = ((pnlContent.Height - childForm.Height) / 2) + offset - 50;
 
-            // Đảm bảo tọa độ không bị âm nếu Panel nhỏ hơn Form
             childForm.Location = new Point(x > 0 ? x : 0, y > 0 ? y : 0);
 
             childForm.BringToFront();
@@ -96,20 +113,62 @@ namespace ElectroManagement.Views.Main
             if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Session.Logout();
-                this.Close(); // Đóng frmMain, nếu bạn code chuẩn ở Program.cs hoặc Login thì nó sẽ hiện lại màn hình Login.
+                this.Hide(); // Ẩn frmMain
+                frmLogin loginForm = new frmLogin();
+                loginForm.ShowDialog(); // Hiển thị form đăng nhập
+                this.Close(); // Đóng frmMain sau khi form đăng nhập đóng (hoặc đăng nhập thành công)
             }
         }
 
         private void pnlContent_Resize(object sender, EventArgs e)
         {
-            if (activeForm != null)
-            {
-                int x = (pnlContent.Width - activeForm.Width) / 2;
-                int y = (pnlContent.Height - activeForm.Height) / 2;
-                activeForm.Location = new Point(x > 0 ? x : 0, y > 0 ? y : 0);
-            }
+            // Bỏ tự động resize căn giữa cứng ngắc, vì giờ ta muốn tự do di chuyển các cửa sổ
         }
 
-     
+        private void tsmOrder_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmOrder());
+        }
+
+        private void tsmInventory_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmInventory());
+        }
+
+        private void historyOder_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmOrderHistory());
+        }
+
+        // --- Menu Quản lý Hệ Thống ---
+
+        private void tsmStaff_Click(object sender, EventArgs e)
+        {
+            // Quản lý người dùng
+            if (Session.CurrentUser == null || Session.CurrentUser.RoleID != 1)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào Quản lý người dùng hoặc chưa đăng nhập hợp lệ!", "Từ chối", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            OpenChildForm(new ElectroManagement.Views.Account.frmAccount());
+        }
+
+        private void tsmWarranty_Click(object sender, EventArgs e)
+        {
+            // Nhật ký hệ thống
+            if (Session.CurrentUser == null || Session.CurrentUser.RoleID != 1)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào Nhật ký hệ thống hoặc chưa đăng nhập hợp lệ!", "Từ chối", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            OpenChildForm(new ElectroManagement.Views.Report.AuditLog.frmAuditLog());
+        }
+
+        private void report_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmReport());
+        }
+
+       
     }
 }

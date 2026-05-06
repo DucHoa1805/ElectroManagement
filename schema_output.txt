@@ -1,0 +1,10 @@
+COLUMN_NAME
+-----------
+OrderID
+UserID
+OrderDate
+Status
+TotalAmount
+PaymentStatus
+
+(6 rows affected)
