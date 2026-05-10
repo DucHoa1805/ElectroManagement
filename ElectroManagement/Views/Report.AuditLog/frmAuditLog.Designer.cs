@@ -29,39 +29,45 @@
             // 
             // dgvAuditLogs
             // 
+            this.dgvAuditLogs.AllowUserToAddRows = false;
+            this.dgvAuditLogs.AllowUserToDeleteRows = false;
             this.dgvAuditLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAuditLogs.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAuditLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAuditLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuditLogs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAuditLogs.Location = new System.Drawing.Point(0, 88);
-            this.dgvAuditLogs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvAuditLogs.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvAuditLogs.Location = new System.Drawing.Point(0, 70);
             this.dgvAuditLogs.Name = "dgvAuditLogs";
             this.dgvAuditLogs.ReadOnly = true;
             this.dgvAuditLogs.RowHeadersWidth = 51;
+            this.dgvAuditLogs.RowTemplate.Height = 35;
             this.dgvAuditLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuditLogs.Size = new System.Drawing.Size(1012, 662);
+            this.dgvAuditLogs.Size = new System.Drawing.Size(900, 530);
             this.dgvAuditLogs.TabIndex = 0;
             // 
             // panelTop
             // 
+            this.panelTop.BackColor = System.Drawing.Color.MidnightBlue;
             this.panelTop.Controls.Add(this.lblSearch);
             this.panelTop.Controls.Add(this.txtSearch);
             this.panelTop.Controls.Add(this.btnRefresh);
             this.panelTop.Controls.Add(this.lblTitle);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1012, 88);
+            this.panelTop.Size = new System.Drawing.Size(900, 70);
             this.panelTop.TabIndex = 1;
             // 
             // lblSearch
             // 
             this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(529, 32);
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.White;
+            this.lblSearch.Location = new System.Drawing.Point(445, 26);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(75, 20);
+            this.lblSearch.Size = new System.Drawing.Size(91, 23);
             this.lblSearch.TabIndex = 3;
             this.lblSearch.Text = "Tìm kiếm:";
             this.lblSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -69,43 +75,47 @@
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(610, 29);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(542, 23);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(258, 26);
+            this.txtSearch.Size = new System.Drawing.Size(230, 30);
             this.txtSearch.TabIndex = 2;
             // 
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(886, 24);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRefresh.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(788, 19);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(112, 44);
+            this.btnRefresh.Size = new System.Drawing.Size(100, 35);
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblTitle.Location = new System.Drawing.Point(14, 19);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(12, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(337, 45);
+            this.lblTitle.Size = new System.Drawing.Size(281, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "NHẬT KÝ HỆ THỐNG";
             // 
             // frmAuditLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 750);
+            this.BackColor = System.Drawing.Color.GhostWhite;
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.dgvAuditLogs);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmAuditLog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lịch sử hoạt động hệ thống";

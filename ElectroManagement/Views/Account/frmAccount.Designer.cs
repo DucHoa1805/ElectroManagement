@@ -53,13 +53,16 @@
             this.lblUsername.Size = new System.Drawing.Size(76, 16);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Tài khoản:";
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(100, 32);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 22);
+            this.txtUsername.Size = new System.Drawing.Size(200, 26);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // lblPassword
             // 
@@ -69,15 +72,18 @@
             this.lblPassword.Size = new System.Drawing.Size(64, 16);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Mật khẩu:";
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(100, 72);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(200, 22);
+            this.txtPassword.Size = new System.Drawing.Size(200, 26);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // lblRole
             // 
@@ -87,6 +93,8 @@
             this.lblRole.Size = new System.Drawing.Size(49, 16);
             this.lblRole.TabIndex = 6;
             this.lblRole.Text = "Vai trò:";
+            this.lblRole.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // cboRole
             // 
@@ -97,8 +105,9 @@
             "Nhân viên"});
             this.cboRole.Location = new System.Drawing.Point(410, 32);
             this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(200, 24);
+            this.cboRole.Size = new System.Drawing.Size(200, 28);
             this.cboRole.TabIndex = 7;
+            this.cboRole.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // chkIsActive
             // 
@@ -107,10 +116,11 @@
             this.chkIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkIsActive.Location = new System.Drawing.Point(100, 115);
             this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Size = new System.Drawing.Size(126, 20);
+            this.chkIsActive.Size = new System.Drawing.Size(135, 24);
             this.chkIsActive.TabIndex = 8;
             this.chkIsActive.Text = "Đang hoạt động";
             this.chkIsActive.UseVisualStyleBackColor = true;
+            this.chkIsActive.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // groupBox1
             // 
@@ -127,45 +137,67 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tài khoản";
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 185);
+            this.btnAdd.Location = new System.Drawing.Point(15, 185);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 35);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(125, 185);
+            this.btnEdit.Location = new System.Drawing.Point(130, 185);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 35);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Cập nhật";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(238, 185);
+            this.btnDelete.Location = new System.Drawing.Point(245, 185);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 35);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(351, 185);
+            this.btnRefresh.Location = new System.Drawing.Point(360, 185);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(100, 35);
             this.btnRefresh.TabIndex = 13;
             this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvAccounts
@@ -173,12 +205,15 @@
             this.dgvAccounts.AllowUserToAddRows = false;
             this.dgvAccounts.AllowUserToDeleteRows = false;
             this.dgvAccounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAccounts.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccounts.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvAccounts.Location = new System.Drawing.Point(12, 235);
             this.dgvAccounts.Name = "dgvAccounts";
             this.dgvAccounts.ReadOnly = true;
             this.dgvAccounts.RowHeadersWidth = 51;
-            this.dgvAccounts.RowTemplate.Height = 24;
+            this.dgvAccounts.RowTemplate.Height = 25;
             this.dgvAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAccounts.Size = new System.Drawing.Size(630, 280);
             this.dgvAccounts.TabIndex = 14;
@@ -189,6 +224,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 531);
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.Controls.Add(this.dgvAccounts);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);

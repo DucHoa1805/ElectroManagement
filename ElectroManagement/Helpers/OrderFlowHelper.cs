@@ -6,10 +6,9 @@ using ElectroManagement.Views.Orders;
 
 namespace ElectroManagement.Helpers
 {
-    /// <summary>
+  
     /// Helper class để kết nối quy trình Đơn Hàng → Thanh Toán → Xuất Kho
     /// Không sửa frmOrder hiện tại, sử dụng helper này để xử lý logic
-    /// </summary>
     public class OrderFlowHelper
     {
         private OrderBusinessController _orderController;

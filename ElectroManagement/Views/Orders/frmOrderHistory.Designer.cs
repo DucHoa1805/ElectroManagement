@@ -38,19 +38,21 @@ namespace ElectroManagement.Views.Orders
             // 
             // panTop
             // 
+            this.panTop.BackColor = System.Drawing.Color.MidnightBlue;
             this.panTop.Controls.Add(this.btnRefresh);
             this.panTop.Controls.Add(this.lblTitle);
             this.panTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panTop.Location = new System.Drawing.Point(0, 0);
             this.panTop.Name = "panTop";
-            this.panTop.Size = new System.Drawing.Size(800, 60);
+            this.panTop.Size = new System.Drawing.Size(800, 70);
             this.panTop.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 18);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(206, 24);
             this.lblTitle.TabIndex = 0;
@@ -59,12 +61,17 @@ namespace ElectroManagement.Views.Orders
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(680, 18);
+            this.btnRefresh.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(670, 15);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(95, 30);
+            this.btnRefresh.Size = new System.Drawing.Size(110, 40);
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvOrderHistory
@@ -72,26 +79,33 @@ namespace ElectroManagement.Views.Orders
             this.dgvOrderHistory.AllowUserToAddRows = false;
             this.dgvOrderHistory.AllowUserToDeleteRows = false;
             this.dgvOrderHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrderHistory.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvOrderHistory.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOrderHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrderHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOrderHistory.Location = new System.Drawing.Point(0, 60);
+            this.dgvOrderHistory.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvOrderHistory.Location = new System.Drawing.Point(0, 70);
             this.dgvOrderHistory.Name = "dgvOrderHistory";
             this.dgvOrderHistory.ReadOnly = true;
-            this.dgvOrderHistory.Size = new System.Drawing.Size(800, 390);
+            this.dgvOrderHistory.RowHeadersWidth = 51;
+            this.dgvOrderHistory.RowTemplate.Height = 35;
+            this.dgvOrderHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrderHistory.Size = new System.Drawing.Size(800, 380);
             this.dgvOrderHistory.TabIndex = 1;
             // Thêm nút xem chi tiết
             System.Windows.Forms.DataGridViewButtonColumn btnView = new System.Windows.Forms.DataGridViewButtonColumn();
             btnView.HeaderText = "Chi tiết";
-            btnView.Text = "Xem";
+            btnView.Text = "Chi tiết >>";
             btnView.UseColumnTextForButtonValue = true;
+            btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dgvOrderHistory.Columns.Add(btnView);
             this.dgvOrderHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderHistory_CellContentClick);
             // 
             // frmOrderHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvOrderHistory);
             this.Controls.Add(this.panTop);

@@ -63,17 +63,24 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách sản phẩm";
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.MidnightBlue;
             // 
             // dgvVariant
             // 
             this.dgvVariant.AllowUserToAddRows = false;
             this.dgvVariant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVariant.Location = new System.Drawing.Point(6, 21);
+            this.dgvVariant.Location = new System.Drawing.Point(6, 25);
             this.dgvVariant.Name = "dgvVariant";
             this.dgvVariant.RowHeadersWidth = 51;
             this.dgvVariant.RowTemplate.Height = 24;
-            this.dgvVariant.Size = new System.Drawing.Size(551, 346);
+            this.dgvVariant.Size = new System.Drawing.Size(551, 335);
             this.dgvVariant.TabIndex = 0;
+            this.dgvVariant.BackgroundColor = System.Drawing.Color.White;
+            this.dgvVariant.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVariant.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvVariant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVariant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVariant.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVariant_CellClick);
             // 
             // groupBox1
@@ -99,32 +106,35 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
             // 
             // nmrPrice
             // 
-            this.nmrPrice.Location = new System.Drawing.Point(140, 182);
+            this.nmrPrice.Location = new System.Drawing.Point(140, 180);
             this.nmrPrice.Maximum = new decimal(new int[] {
             1410065407,
             2,
             0,
             0});
             this.nmrPrice.Name = "nmrPrice";
-            this.nmrPrice.Size = new System.Drawing.Size(239, 22);
+            this.nmrPrice.Size = new System.Drawing.Size(239, 30);
             this.nmrPrice.TabIndex = 25;
             this.nmrPrice.ThousandsSeparator = true;
-           
+            this.nmrPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // nmrQuantity
             // 
-            this.nmrQuantity.Location = new System.Drawing.Point(140, 228);
+            this.nmrQuantity.Location = new System.Drawing.Point(140, 226);
             this.nmrQuantity.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.nmrQuantity.Name = "nmrQuantity";
-            this.nmrQuantity.Size = new System.Drawing.Size(239, 22);
+            this.nmrQuantity.Size = new System.Drawing.Size(239, 30);
             this.nmrQuantity.TabIndex = 24;
+            this.nmrQuantity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // numericUpDown1
             // 
@@ -136,71 +146,96 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 228);
+            this.label2.Location = new System.Drawing.Point(23, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 21;
             this.label2.Text = "Số lượng kho:";
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // txtStorage
             // 
-            this.txtStorage.Location = new System.Drawing.Point(140, 135);
+            this.txtStorage.Location = new System.Drawing.Point(140, 133);
             this.txtStorage.Name = "txtStorage";
-            this.txtStorage.Size = new System.Drawing.Size(239, 22);
+            this.txtStorage.Size = new System.Drawing.Size(239, 30);
             this.txtStorage.TabIndex = 20;
+            this.txtStorage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(140, 96);
+            this.txtColor.Location = new System.Drawing.Point(140, 94);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(239, 22);
+            this.txtColor.Size = new System.Drawing.Size(239, 30);
             this.txtColor.TabIndex = 19;
+            this.txtColor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(354, 279);
+            this.btnClear.Location = new System.Drawing.Point(354, 285);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(94, 52);
+            this.btnClear.Size = new System.Drawing.Size(95, 45);
             this.btnClear.TabIndex = 11;
-            this.btnClear.Text = "Reset";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Text = "Làm mới";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(245, 279);
+            this.btnDelete.Location = new System.Drawing.Point(245, 285);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 52);
+            this.btnDelete.Size = new System.Drawing.Size(95, 45);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(131, 279);
+            this.btnUpdate.Location = new System.Drawing.Point(135, 285);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(94, 52);
+            this.btnUpdate.Size = new System.Drawing.Size(95, 45);
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Sửa";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtSKU
             // 
             this.txtSKU.Location = new System.Drawing.Point(140, 53);
             this.txtSKU.Name = "txtSKU";
-            this.txtSKU.Size = new System.Drawing.Size(239, 22);
+            this.txtSKU.Size = new System.Drawing.Size(239, 30);
             this.txtSKU.TabIndex = 3;
+            this.txtSKU.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(22, 279);
+            this.btnAdd.Location = new System.Drawing.Point(22, 285);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 52);
+            this.btnAdd.Size = new System.Drawing.Size(95, 45);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
@@ -211,6 +246,8 @@
             this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã định danh";
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // label4
             // 
@@ -220,6 +257,8 @@
             this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Giá bán";
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // label10
             // 
@@ -229,6 +268,8 @@
             this.label10.Size = new System.Drawing.Size(58, 16);
             this.label10.TabIndex = 1;
             this.label10.Text = "Màu sắc";
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // label3
             // 
@@ -238,11 +279,14 @@
             this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Dung lượng";
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
             // 
             // frmVariant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1097, 459);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

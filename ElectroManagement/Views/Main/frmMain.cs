@@ -31,7 +31,7 @@ namespace ElectroManagement.Views.Main
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // SỬA LỖI: Bỏ dấu ngoặc () vì IsLoggedIn là một Property (biến) trong file Session.cs
+    
             if (!Session.IsLoggedIn)
             {
                 MessageBox.Show("Vui lòng đăng nhập trước khi sử dụng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

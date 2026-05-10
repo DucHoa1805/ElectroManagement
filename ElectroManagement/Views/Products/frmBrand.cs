@@ -172,5 +172,7 @@ namespace ElectroManagement.Views.Products
             dgvBrand.ClearSelection();
             txtBrandName.Focus();
         }
+
+       
     }
 }
